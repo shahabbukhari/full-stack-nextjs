@@ -8,7 +8,6 @@ const theme = extendTheme({
     gray: {
       50: '#F9FAFB',
       100: '#F3F4F6',
-
       200: '#E5E7EB',
       300: '#D1D5DB',
       400: '#9CA3AF',
@@ -34,7 +33,9 @@ const theme = extendTheme({
 })
 
 const MyApp = ({ Component, pageProps }) => {
-  return (
+  return Component.authPage ? (
+    <Component {...pageProps} />
+  ) : (
     <ChakraProvider theme={theme}>
       <Layout>
         <Component {...pageProps} />
